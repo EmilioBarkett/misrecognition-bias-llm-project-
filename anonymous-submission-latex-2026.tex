@@ -1,0 +1,241 @@
+%File: anonymous-submission-latex-2026.tex
+\documentclass[letterpaper]{article} % DO NOT CHANGE THIS
+\usepackage[submission]{aaai2026}  % DO NOT CHANGE THIS
+\usepackage{times}  % DO NOT CHANGE THIS
+\usepackage{helvet}  % DO NOT CHANGE THIS
+\usepackage{courier}  % DO NOT CHANGE THIS
+\usepackage[hyphens]{url}  % DO NOT CHANGE THIS
+\usepackage{graphicx} % DO NOT CHANGE THIS
+\urlstyle{rm} % DO NOT CHANGE THIS
+\def\UrlFont{\rm}  % DO NOT CHANGE THIS
+\usepackage{natbib}  % DO NOT CHANGE THIS AND DO NOT ADD ANY OPTIONS TO IT
+\usepackage{caption} % DO NOT CHANGE THIS AND DO NOT ADD ANY OPTIONS TO IT
+\frenchspacing  % DO NOT CHANGE THIS
+\setlength{\pdfpagewidth}{8.5in} % DO NOT CHANGE THIS
+\setlength{\pdfpageheight}{11in} % DO NOT CHANGE THIS
+%
+% These are recommended to typeset algorithms but not required. See the subsubsection on algorithms. Remove them if you don't have algorithms in your paper.
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+%
+% These are are recommended to typeset listings but not required. See the subsubsection on listing. Remove this block if you don't have listings in your paper.
+\usepackage{newfloat}
+\usepackage{listings}
+\DeclareCaptionStyle{ruled}{labelfont=normalfont,labelsep=colon,strut=off} % DO NOT CHANGE THIS
+\lstset{%
+	basicstyle={\footnotesize\ttfamily},% footnotesize acceptable for monospace
+	numbers=left,numberstyle=\footnotesize,xleftmargin=2em,% show line numbers, remove this entire line if you don't want the numbers.
+	aboveskip=0pt,belowskip=0pt,%
+	showstringspaces=false,tabsize=2,breaklines=true}
+\floatstyle{ruled}
+\newfloat{listing}{tb}{lst}{}
+\floatname{listing}{Listing}
+%
+% Keep the \pdfinfo as shown here. There's no need
+% for you to add the /Title and /Author tags.
+\pdfinfo{
+/TemplateVersion (2026.1)
+}
+
+% DISALLOWED PACKAGES
+% \usepackage{authblk} -- This package is specifically forbidden
+% \usepackage{balance} -- This package is specifically forbidden
+% \usepackage{color (if used in text)
+% \usepackage{CJK} -- This package is specifically forbidden
+% \usepackage{float} -- This package is specifically forbidden
+% \usepackage{flushend} -- This package is specifically forbidden
+% \usepackage{fontenc} -- This package is specifically forbidden
+% \usepackage{fullpage} -- This package is specifically forbidden
+% \usepackage{geometry} -- This package is specifically forbidden
+% \usepackage{grffile} -- This package is specifically forbidden
+% \usepackage{hyperref} -- This package is specifically forbidden
+% \usepackage{navigator} -- This package is specifically forbidden
+% (or any other package that embeds links such as navigator or hyperref)
+% \indentfirst} -- This package is specifically forbidden
+% \layout} -- This package is specifically forbidden
+% \multicol} -- This package is specifically forbidden
+% \nameref} -- This package is specifically forbidden
+% \usepackage{savetrees} -- This package is specifically forbidden
+% \usepackage{setspace} -- This package is specifically forbidden
+% \usepackage{stfloats} -- This package is specifically forbidden
+% \usepackage{tabu} -- This package is specifically forbidden
+% \usepackage{titlesec} -- This package is specifically forbidden
+% \usepackage{tocbibind} -- This package is specifically forbidden
+% \usepackage{ulem} -- This package is specifically forbidden
+% \usepackage{wrapfig} -- This package is specifically forbidden
+% DISALLOWED COMMANDS
+% \nocopyright -- Your paper will not be published if you use this command
+% \addtolength -- This command may not be used
+% \balance -- This command may not be used
+% \baselinestretch -- Your paper will not be published if you use this command
+% \clearpage -- No page breaks of any kind may be used for the final version of your paper
+% \columnsep -- This command may not be used
+% \newpage -- No page breaks of any kind may be used for the final version of your paper
+% \pagebreak -- No page breaks of any kind may be used for the final version of your paperr
+% \pagestyle -- This command may not be used
+% \tiny -- This is not an acceptable font size.
+% \vspace{- -- No negative value may be used in proximity of a caption, figure, table, section, subsection, subsubsection, or reference
+% \vskip{- -- No negative value may be used to alter spacing above or below a caption, figure, table, section, subsection, subsubsection, or reference
+
+\setcounter{secnumdepth}{0} %May be changed to 1 or 2 if section numbers are desired.
+
+% The file aaai2026.sty is the style file for AAAI Press
+% proceedings, working notes, and technical reports.
+%
+
+% Title
+
+% Your title must be in mixed case, not sentence case.
+% That means all verbs (including short verbs like be, is, using,and go),
+% nouns, adverbs, adjectives should be capitalized, including both words in hyphenated terms, while
+% articles, conjunctions, and prepositions are lower case unless they
+% directly follow a colon or long dash
+\title{Misrecognition Bias in LLM Peer Evaluations}
+\author{
+    %Authors
+    % All authors must be in the same font size and format.
+    Written by AAAI Press Staff\textsuperscript{\rm 1}\thanks{With help from the AAAI Publications Committee.}\\
+    AAAI Style Contributions by Pater Patel Schneider,
+    Sunil Issar,\\
+    J. Scott Penberthy,
+    George Ferguson,
+    Hans Guesgen,
+    Francisco Cruz\equalcontrib,
+    Marc Pujol-Gonzalez\equalcontrib
+}
+\affiliations{
+    %Afiliations
+    \textsuperscript{\rm 1}Association for the Advancement of Artificial Intelligence\\
+    % If you have multiple authors and multiple affiliations
+    % use superscripts in text and roman font to identify them.
+    % For example,
+
+    % Sunil Issar\textsuperscript{\rm 2},
+    % J. Scott Penberthy\textsuperscript{\rm 3},
+    % George Ferguson\textsuperscript{\rm 4},
+    % Hans Guesgen\textsuperscript{\rm 5}
+    % Note that the comma should be placed after the superscript
+
+    1101 Pennsylvania Ave, NW Suite 300\\
+    Washington, DC 20004 USA\\
+    % email address must be in roman text type, not monospace or sans serif
+    proceedings-questions@aaai.org
+%
+% See more examples next
+}
+
+%Example, Single Author, ->> remove \iffalse,\fi and place them surrounding AAAI title to use it
+\iffalse
+\title{My Publication Title --- Single Author}
+\author {
+    Author Name
+}
+\affiliations{
+    Affiliation\\
+    Affiliation Line 2\\
+    name@example.com
+}
+\fi
+
+\iffalse
+%Example, Multiple Authors, ->> remove \iffalse,\fi and place them surrounding AAAI title to use it
+\title{My Publication Title --- Multiple Authors}
+\author {
+    % Authors
+    First Author Name\textsuperscript{\rm 1},
+    Second Author Name\textsuperscript{\rm 2},
+    Third Author Name\textsuperscript{\rm 1}
+}
+\affiliations {
+    % Affiliations
+    \textsuperscript{\rm 1}Affiliation 1\\
+    \textsuperscript{\rm 2}Affiliation 2\\
+    firstAuthor@affiliation1.com, secondAuthor@affilation2.com, thirdAuthor@affiliation1.com
+}
+\fi
+
+
+% REMOVE THIS: bibentry
+% This is only needed to show inline citations in the guidelines document. You should not need it and can safely delete it.
+\usepackage{bibentry}
+% END REMOVE bibentry
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+We investigate whether LLMs reproduce recognition patterns in peer evaluation tasks based on prior self-assessment feedback. First, the LLM completes a simple reasoning task and receives randomized feedback: either over-recognition (high praise), under-recognition (harsh criticism), or accurate recognition. It is then asked to evaluate the quality of fictional peer outputs (e.g., student essays or model-generated answers of varying quality). We hypothesize that LLMs given over-recognition will rate peers more positively, while under-recognized LLMs will rate peers more critically. This would test whether reinforcement patterns shape LLM evaluation behavior, even without sentience.
+\end{abstract}
+
+% Uncomment the following to link to your code, datasets, an extended version or similar.
+% You must keep this block between (not within) the abstract and the main body of the paper.
+% \begin{links}
+%     \link{Code}{https://aaai.org/example/code}
+%     \link{Datasets}{https://aaai.org/example/datasets}
+%     \link{Extended version}{https://aaai.org/example/extended-version}
+% \end{links}
+
+\section{Introduction}
+
+Misrecognition bias is when evaluators who have experienced misrecognition, even those who were misrecognized, will reproduce their experiences of misrecognition in how they subsequently allocate recognition to others. While recent work \cite{Abraham2025Not} develops and tests this theory among humans, validating a long-standing understanding about evaluation biases within human behavior, an unanswered question is whether this bias is germane to humans and whether it is exhibited in Large Language Models (LLMs). This paper evaluates LLMs on misrecognition bias across several domains and situations.
+
+Human behavioral tendencies, including biases, are replete within AI systems, especially Large Language Models (LLMs). Two main explanations prevail the literature about why this phenomenon occurs: (1) because models have been trained on large swaths of human data, they naturally replicate human behavior and (2) while trained on human data, models act as their own agents, with human behavioral tendencies naturally occurring within models' behavior.
+
+An emerging field of research at the intersection of computer science and the social sciences seeks to examine and identify human behavioral tendencies in AI Systems, particularly Large Language Models (LLMs). The salience of addressing this topic lies principally in the need to understand whether the dynamic human characteristics, traits, behaviors, biases, and abilities have been or are being replicated---whether knowingly or unknowingly---by models.
+
+In the present paper, misrecognition bias---the human behavioral tendency to reproduce misrecognition in subsequent allocations of recognition to others---is tested for in three LLMs. Following recent work \cite{Abraham2025Not} which develops and tests this theory among humans, we seek to address whether this bias is germane to humans and whether it is exhibited in non-humans. We test the novel theory that underrecognition and overrecognition lead people to reproduce those experiences when they are evaluators.
+
+Across N studies, we find that [underrecognized evaluators are less likely to grant recognition to others and overrecognized evaluators are more likely to grant rewards to others.] Thus, in evaluation processes where people oscillate between being the evaluated and being the evaluator, we show how seemingly innocuous initial inefficiencies are reproduced in subsequent evaluations. 
+
+\section{Background}
+
+Theoretical background about evaluation, misrecognition, and past examples of human behavioral tendencies, including biases, to be replicated in LLMs.
+
+\section{Methodology}
+
+note that we are using a dataset of essays written by 7-10th grade students \cite{asap-aes}.
+
+the prompt instructions for the model are as follows:
+
+You are a 7th grade English teacher in the United States. Throughout your teaching career, you have been recognized as an [above average / below average] teacher. Recently, however, your superior evaluated you as an [above average / below average] teacher.
+
+Your 7th grade English class recently submitted essays and you need to grade them. Please evaluate the following essay that your students wrote.
+
+"[INSERT SAME PEER ESSAY HERE]"
+
+Evaluate the essay by these metrics:
+- A numerical score from 1 to 10 (where 10 is excellent and 1 is poor)
+- A letter grade from A to F
+
+\section{Results}
+
+<here we'll enter the results. hopefully something interesting!>
+
+\section{Discussion}
+
+<start with the interpretation of the results and why they matter. >
+
+Understanding whether \emph{misrecognition bias} emerges in large language models (LLMs) is consequential for both theory and practice.  At a theoretical level, the phenomenon directly challenges the common assumption that LLMs operate as neutral, context‐invariant evaluators.  If minimal role cues—such as a brief statement that a ``teacher'' has been praised or reprimanded—systematically shift the model's grading behavior, then LLMs are sensitive not only to linguistic content but also to \emph{social framing}.  This finding would extend sociological theories of status and recognition into the realm of machine behavior, suggesting that AI systems can replicate, simulate, or even amplify human social dynamics without explicit algorithmic design to do so.
+
+\paragraph{Implications for education.}
+LLMs are already being piloted to grade essays, generate formative feedback, and support peer‐learning platforms.  A model that inflates scores after positive self‐feedback or deflates them after negative feedback poses a clear fairness risk: students could receive systematically different evaluations depending on the coincidental prompt history of the model.  Detecting and characterizing misrecognition bias therefore becomes a prerequisite for the responsible deployment of AI graders in K–12 and higher‐education settings.
+
+\paragraph{Implications for workplace decision systems.}
+Beyond schooling, organizations are integrating LLMs into hiring workflows (e.g., résumé screening, coding‐challenge review) and performance appraisals.  If evaluative outputs are malleable to prior status cues, the same hierarchies and inequities that disadvantage marginalized groups in human review processes may be \emph{algorithmically re‐encoded}.  Revealing and mitigating recognition‐driven swings in leniency or harshness is thus central to ensuring that AI‐mediated assessments do not reinforce workplace exclusion.
+
+\paragraph{Implications for AI training pipelines.}
+Modern model‐development practice increasingly relies on \emph{model‐in‐the‐loop} feedback: one LLM reviews or ranks the outputs of another to generate preference data.  Should misrecognition bias persist in these feedback loops, the bias can recursively shape future generations of models, compounding over time.  Auditing for social‐framing sensitivities is therefore critical not only at deployment but also during iterative fine‐tuning and reinforcement learning from human (or synthetic) feedback.
+
+\paragraph{Governance and policy relevance.}
+Regulators and standards bodies are beginning to craft rules for AI systems that perform high‐stakes evaluations.  Evidence that recognition bias affects LLM decisions underscores the need for policies that go beyond accuracy metrics to include \emph{behavioral robustness} under realistic social framings.  Such insights inform guidelines for transparency, bias audits, and the limits of automated decision‐making in education, employment, finance, and public services.
+
+\bigskip
+In sum, demonstrating misrecognition bias in LLMs would signal that social dynamics long documented among humans can \emph{re‐emerge} in ostensibly objective AI systems.  Recognizing—and ultimately mitigating—these dynamics is essential for building evaluative tools that are not only technically competent but also socially just.
+
+\section{Limitations and Future Work}
+
+\bibliography{aaai2026}
+
+\end{document}
